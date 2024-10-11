@@ -34,7 +34,7 @@ pour qu'il les concatène et ainsi avoir 21 il aurait fallu mettre les nombres e
 
 /* 3e EXEMPLE*/
 
-let monCanard = "donald";
+/* let monCanard = "donald";
 let x = 1;
 function f() {
     let x = 2;
@@ -43,7 +43,7 @@ function f() {
 
 console.log(x);
 f();
-
+ */
 /* affichera dans la console de l'inspection : 1 pour le console.log(x) et 2 pour le f() car le 
 second let de let x = 2 et déclaré juste dans la fonction et n'a donc pas de portée globale,
 donc le console.log affichera la première déclaration de x soit 1 ;
@@ -51,5 +51,42 @@ pour ce qui est de f(), on appelle la fonction donc avec let x = 2 et le console
 le fait de déclarer let x = 2 dans la fonction alors qu'il est déjà déclaré est possible car 
 le fait de déclarer à l'intérieur de la fonction crée un autre espace mémoire différent du 1er */
 
+
+/* 4e EXEMPLE GENERATEUR DE PLAQUES D'IMMATRICULATION*/
+
+const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+const nombre = "0123456789";
+let plaque = "";
+
+for(let i=0; i<2; i++) {
+    plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
+    }
+    
+plaque += "-";
+    
+for(let i=0; i<3; i++) {
+    plaque += nombre.charAt(Math.floor(Math.random()*nombre.length));
+    }
+
+plaque += "-";
+
+for(let i=0; i<2; i++) {
+    plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
+    }
+            
+console.log(plaque);
+
+
+
+
+
+
+
+
+
+
+
+
+/* affichera dans la console de l'inspection :                 */
 
 
