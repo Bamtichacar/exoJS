@@ -80,7 +80,7 @@ console.log(plaque); */
 
 /* 5e EXEMPLE OPTIMISATION EN SUPPRIMANT LES REPETITIONS DES BOUCLES A L'AIDE DE FONCTIONS*/
 
-const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+/* const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const nombre = "0123456789";
 let plaque = "";
 
@@ -102,8 +102,78 @@ generateLetter()
 generateNumber()
 generateLetter()
 console.log(plaque);
+ */
 
 
+/* 6e EXEMPLE DETERMINER UN NOMBRE DE PLAQUES A GENERER*/
+
+const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+const nombre = "0123456789";
+let plaque = "";
+
+function generateLetter() {
+    for(let i=0; i<2; i++) {
+        plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
+        }
+}
+
+function generateNumber() {
+    plaque += "-"
+    for(let i=0; i<3; i++) {
+        plaque += nombre.charAt(Math.floor(Math.random()*nombre.length));
+        }
+        plaque += "-"
+}
+/* 
+generateLetter()
+generateNumber()
+generateLetter()
+console.log(plaque);
+
+
+ */
+function generatePlaques() {
+    let i =10;
+    while(i>0) {
+        plaque="";
+        generateLetter();
+        generateNumber();
+        generateLetter();
+        console.log(plaque);
+        i--;
+        }    
+}
+
+generatePlaques();
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 7e EXEMPLE VERIFICATION SI PLAQUE EXISTE DEJA NE PAS AFFICHER*/
 
 
 
