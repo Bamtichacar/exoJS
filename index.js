@@ -54,14 +54,14 @@ le fait de déclarer à l'intérieur de la fonction crée un autre espace mémoi
 
 /* 4e EXEMPLE GENERATEUR DE PLAQUES D'IMMATRICULATION*/
 
-const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+/* const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const nombre = "0123456789";
 let plaque = "";
 
 for(let i=0; i<2; i++) {
     plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
     }
-    
+
 plaque += "-";
     
 for(let i=0; i<3; i++) {
@@ -74,7 +74,36 @@ for(let i=0; i<2; i++) {
     plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
     }
             
+console.log(plaque); */
+
+
+
+/* 5e EXEMPLE OPTIMISATION EN SUPPRIMANT LES REPETITIONS DES BOUCLESfunct*/
+
+const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+const nombre = "0123456789";
+let plaque = "";
+
+function generateLetter() {
+    for(let i=0; i<2; i++) {
+        plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
+        }
+}
+
+function generateNumber() {
+    plaque += "-"
+    for(let i=0; i<3; i++) {
+        plaque += nombre.charAt(Math.floor(Math.random()*nombre.length));
+        }
+        plaque += "-"
+}
+
+generateLetter()
+generateNumber()
+generateLetter()
 console.log(plaque);
+
+
 
 
 
