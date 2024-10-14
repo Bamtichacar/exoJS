@@ -150,7 +150,7 @@ generatePlaques();
             
 /* 7e EXEMPLE PLAQUE DEJA EXISTANTE LA REMPLACER EN EN GENERANT UNE NOUVELLE*/
 
-const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+/* const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const nombre = "0123456789";
 let plaque = "";
 
@@ -167,14 +167,7 @@ function generateNumber() {
         }
         plaque += "-"
 }
-/* 
-generateLetter()
-generateNumber()
-generateLetter()
-console.log(plaque);
 
-
- */
 function generatePlaques() {
     let i =10;
     while(i>0) {
@@ -188,18 +181,6 @@ function generatePlaques() {
         return plaque;    
 }
 
-/* PAS BON  
-generatePlaques();
- */
-
-
-
-/* PAS BON
-const parcDesPlaques = [];
-for (let i = 0;i<20; i++){
-    parcDesPlaques.push(generatePlaques());
-}
-console.log(parcDesPlaques); */
 
 const parcDesPlaques = [];
 for (let i = 0; i < 20; i++) {
@@ -220,20 +201,6 @@ function estUnique(plaque) {
     return true;
 }
 
-
-/* 2 POSSIBILITES : SI PAS DE RETURN DANS LA FONCTION  FAIRE 
-generatePlaques()
-estUnique(plaque)  
-
-SINON FAIRE
- */
-/* PAS BON 
-estUnique(generatePlaques()); */
-//soit est unique est true alors push 
-///ou autre methode on stocke resultat estuniqu dans varialble qu on verifie ensuite
-
-
-
 function rajoutPlaqueUniqueDansParc(plaque) {
     if (estUnique(plaque)) {
         parcDesPlaques.push(plaque);
@@ -243,8 +210,46 @@ function rajoutPlaqueUniqueDansParc(plaque) {
 
 rajoutPlaqueUniqueDansParc(plaque);
 console.log(parcDesPlaques);
+ */
 
+// AUTRE SOLUTION PLUS CLAIRE
 
+let plaquesExistantes = [];
+function genererPlaque() {
+    const lettres = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+    const nombres = "0123456789";
+    let partie1 = "";
+    let partie2 = "";
+    let partie3 = "";
+    for (let i=0; i<2; i++) {
+        partie1 += lettres.charAt(Math.floor(Math.random()*lettres.length));
+    }
+    for (let i=0; i<3; i++) {
+        partie1 += nombres.charAt(Math.floor(Math.random()*nombres.length));
+    }
+    for (let i=0; i<2; i++) {
+        partie1 += lettres.charAt(Math.floor(Math.random()*lettres.length));
+    }
+    const plaque = `${partie1}-${partie2}-${partie3}`;
+    return plaque
+}
+
+function genererPlaqueUnique() {
+    let plaque;
+    do {
+        plaque = genererPlaque();
+    } while
+    (plaquesExistantes.includes(plaque));
+    plaquesExistantes.push(plaque);
+    return plaque
+}
+
+//Ex utilisation :
+
+//pour générer 5 plaques différentes :
+for (let i=0; i<5; i++) {
+    console.log(genererPlaqueUnique());
+}
 
 
 
