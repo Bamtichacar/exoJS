@@ -107,6 +107,49 @@ console.log(plaque);
 
 /* 6e EXEMPLE DETERMINER UN NOMBRE DE PLAQUES A GENERER*/
 
+/* const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+const nombre = "0123456789";
+let plaque = "";
+
+function generateLetter() {
+    for(let i=0; i<2; i++) {
+        plaque += lettre.charAt(Math.floor(Math.random()*lettre.length));
+        }
+}
+
+function generateNumber() {
+    plaque += "-"
+    for(let i=0; i<3; i++) {
+        plaque += nombre.charAt(Math.floor(Math.random()*nombre.length));
+        }
+        plaque += "-"
+}
+ *//* 
+generateLetter()
+generateNumber()
+generateLetter()
+console.log(plaque);
+
+
+ */
+/* function generatePlaques() {
+    let i =10;
+    while(i>0) {
+        plaque="";
+        generateLetter();
+        generateNumber();
+        generateLetter();
+        console.log(plaque);
+        i--;
+        }    
+}
+
+generatePlaques();
+ */
+
+            
+/* 7e EXEMPLE PLAQUE DEJA EXISTANTE LA REMPLACER EN EN GENERANT UNE NOUVELLE*/
+
 const lettre = "ABCDEFGHJKLMNPQRSTUVWXYZ";
 const nombre = "0123456789";
 let plaque = "";
@@ -141,13 +184,73 @@ function generatePlaques() {
         generateLetter();
         console.log(plaque);
         i--;
-        }    
+        }
+        return plaque;    
 }
 
+/* PAS BON  
 generatePlaques();
+ */
 
 
-            
+
+/* PAS BON
+const parcDesPlaques = [];
+for (let i = 0;i<20; i++){
+    parcDesPlaques.push(generatePlaques());
+}
+console.log(parcDesPlaques); */
+
+const parcDesPlaques = [];
+for (let i = 0; i < 20; i++) {
+    let newPlaque;
+    do {
+        newPlaque = generatePlaques();
+    } while (!estUnique(newPlaque));
+    parcDesPlaques.push(newPlaque);
+}
+console.log(parcDesPlaques);
+
+function estUnique(plaque) {
+    for (let i = 0; i < parcDesPlaques.length; i++) {
+        if (plaque === parcDesPlaques[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+/* 2 POSSIBILITES : SI PAS DE RETURN DANS LA FONCTION  FAIRE 
+generatePlaques()
+estUnique(plaque)  
+
+SINON FAIRE
+ */
+/* PAS BON 
+estUnique(generatePlaques()); */
+//soit est unique est true alors push 
+///ou autre methode on stocke resultat estuniqu dans varialble qu on verifie ensuite
+
+
+
+function rajoutPlaqueUniqueDansParc(plaque) {
+    if (estUnique(plaque)) {
+        parcDesPlaques.push(plaque);
+    }
+    return plaque;
+}
+
+rajoutPlaqueUniqueDansParc(plaque);
+console.log(parcDesPlaques);
+
+
+
+
+
+
+
+
 
 
 
